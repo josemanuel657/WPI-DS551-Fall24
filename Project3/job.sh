@@ -1,15 +1,22 @@
 #!/bin/bash
 
-#SBATCH-A cs525
-#SBATCH -p academic
-#SBATCH -N 1
-#SBATCH -c 8
-#SBATCH --gres=gpu:1
-#SBATCH -C A100
-#SBATCH -t 24:00:00
-#SBATCH --mem 12G
-#SBATCH --job-name="P3"
+#SBATCH -A cs525
+#SBATCH -p academic         
+#SBATCH -N 3               
+#SBATCH -c 8              
+#SBATCH --gres=gpu:2        
+#SBATCH -t 40:00:00        
+#SBATCH --mem=32G           
+#SBATCH --job-name="multi-node-5-with-4-gpus"
 
+eval "$(conda shell.bash hook)"
 
 conda activate myenv
-python3 main.py --train_dqn
+
+if [[ -z "$CONDA_DEFAULT_ENV" ]]; then
+  echo "No Conda environment is active."
+else
+  echo "The active Conda environment is: $CONDA_DEFAULT_ENV"
+fi
+
+python main.py --train_dqn

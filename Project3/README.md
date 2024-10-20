@@ -178,3 +178,7 @@ Please compress all the below files into a zipped file and submit the zip file (
   | 14  | 11/14/2022  | Rushabh Kheni | 65.51 | Vanilla DQN with Deepmind architecture |  
   | 15  | 10/30/2022 | Jack Ayvazian | 47.49 | Double DQN, DeepMind Architecture |  
   
+
+
+## Help
+https://pytorch.org/tutorials/intermediate/reinforcement_q_learning.html
