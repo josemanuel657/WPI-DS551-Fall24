@@ -20,6 +20,7 @@ torch.manual_seed(595)
 np.random.seed(595)
 random.seed(595)
 
+
 EPSILON_START = 0.9
 EPSILON_END = 0.025
 NUM_GAMES = 1000000
@@ -181,7 +182,7 @@ class Agent_DQN(Agent):
             average_loss = total_loss / loss_count if loss_count > 0 else 0
             average_q_value = total_q_value / loss_count if loss_count > 0 else 0
                 
- 
+
             wandb.log({
                 "episode_number": episode,
                 "epsilon": self.eps,
@@ -196,7 +197,7 @@ class Agent_DQN(Agent):
                 
             self.eps = max(EPSILON_END, self.eps - EPSILON_DECAY)
 
-            
+
                 
 
     def update_policy(self):
